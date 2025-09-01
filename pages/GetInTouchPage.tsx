@@ -1,6 +1,7 @@
+
 import React from 'react';
-import Header from '../components/Header';
-import BackButton from '../components/BackButton';
+import Header from '../components/Header.tsx';
+import BackButton from '../components/BackButton.tsx';
 
 // --- BACKGROUND COMPONENTS ---
 

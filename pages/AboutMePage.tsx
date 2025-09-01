@@ -1,6 +1,7 @@
+
 import React from 'react';
-import Header from '../components/Header';
-import BackButton from '../components/BackButton';
+import Header from '../components/Header.tsx';
+import BackButton from '../components/BackButton.tsx';
 
 const FloatingCloud: React.FC<{ className?: string, style?: React.CSSProperties }> = ({ className, style }) => (
     <svg viewBox="0 0 100 60" className={className} style={style} fill="currentColor">
@@ -16,9 +17,9 @@ const PetalDoodle: React.FC<{ className?: string; style?: React.CSSProperties }>
     </div>
 );
 
-const ImagePlaceholder: React.FC<{ text: string; className?: string }> = ({ text, className }) => (
-    <div className={`flex items-center justify-center bg-[#e2ced3]/50 border-2 border-dashed border-[#c9a9ad] rounded-2xl p-4 text-center text-[#66496a]/70 font-playfair italic shadow-lg ${className}`}>
-        <span>{text}</span>
+const ImagePlaceholder: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className }) => (
+    <div className={`bg-white/50 p-2 rounded-2xl shadow-lg border-2 border-white/30 transform transition-all duration-300 overflow-hidden ${className}`}>
+        <img src={src} alt={alt} className="w-full h-full object-cover rounded-xl" />
     </div>
 );
 
@@ -39,11 +40,14 @@ const AboutMePage: React.FC = () => {
             
             <main className="relative z-10 w-full max-w-4xl mt-24 mb-12">
                 {/* Image Placeholders in a collage style */}
-                <ImagePlaceholder text="My trusty canine co-worker" className="absolute -top-24 left-0 w-48 h-56 transform -rotate-12 transition-transform hover:scale-105 hover:rotate-[-15deg] z-20" />
-                <ImagePlaceholder text="A favorite travel snapshot" className="absolute top-1/2 -right-24 w-56 h-40 transform rotate-6 transition-transform hover:scale-105 hover:rotate-[10deg] z-0" />
-                <ImagePlaceholder text="Fueled by coffee and code" className="absolute -bottom-24 left-1/4 w-64 h-32 transform -rotate-3 transition-transform hover:scale-105 hover:rotate-[-5deg] z-20" />
-                <ImagePlaceholder text="Me, probably thinking about snacks" className="absolute top-16 -left-32 w-40 h-48 transform rotate-8 transition-transform hover:scale-105 hover:rotate-[12deg] z-0" />
-                <ImagePlaceholder text="A beautiful sunset" className="absolute bottom-0 -right-8 w-40 h-40 transform rotate-[-10deg] transition-transform hover:scale-105 hover:rotate-[-15deg] z-20" />
+                <ImagePlaceholder src="images/about_me_1.jpg" alt="My trusty canine co-worker" className="absolute -top-28 left-0 w-56 h-64 transform -rotate-12 hover:scale-105 hover:rotate-[-15deg] z-20" />
+                <ImagePlaceholder src="images/about_me_2.jpg" alt="A favorite travel snapshot" className="absolute top-1/2 -right-28 w-64 h-48 transform rotate-6 hover:scale-105 hover:rotate-[10deg] z-0" />
+                <ImagePlaceholder src="images/about_me_3.jpg" alt="Fueled by coffee and code" className="absolute -bottom-28 left-1/4 w-72 h-40 transform -rotate-3 hover:scale-105 hover:rotate-[-5deg] z-20" />
+                <ImagePlaceholder src="images/about_me_4.jpg" alt="Me, probably thinking about snacks" className="absolute top-16 -left-36 w-48 h-56 transform rotate-8 hover:scale-105 hover:rotate-[12deg] z-0" />
+                <ImagePlaceholder src="images/about_me_5.jpg" alt="A beautiful sunset" className="absolute bottom-0 -right-12 w-48 h-48 transform rotate-[-10deg] hover:scale-105 hover:rotate-[-15deg] z-20" />
+                <ImagePlaceholder src="images/about_me_6.jpg" alt="Sketches and doodles" className="absolute -top-20 -right-20 w-52 h-60 transform rotate-12 hover:scale-105 hover:rotate-[15deg] z-0" />
+                <ImagePlaceholder src="images/about_me_7.jpg" alt="My little garden" className="absolute -bottom-24 -left-12 w-56 h-56 transform -rotate-8 hover:scale-105 hover:rotate-[-12deg] z-20" />
+                <ImagePlaceholder src="images/about_me_8.jpg" alt="Favorite book nook" className="absolute -top-24 right-1/4 w-48 h-48 transform rotate-3 hover:scale-105 hover:rotate-[5deg] z-0" />
 
                 <div className="bg-white/30 backdrop-blur-xl p-8 sm:p-12 rounded-3xl shadow-2xl border border-white/40 relative">
                     <header className="text-center mb-8">

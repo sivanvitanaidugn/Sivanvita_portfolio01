@@ -1,6 +1,7 @@
+
 import React from 'react';
-import Header from '../components/Header';
-import BackButton from '../components/BackButton';
+import Header from '../components/Header.tsx';
+import BackButton from '../components/BackButton.tsx';
 
 const FloatingCloud: React.FC<{ className?: string, style?: React.CSSProperties }> = ({ className, style }) => (
     <svg viewBox="0 0 100 60" className={className} style={style} fill="currentColor">
@@ -16,9 +17,9 @@ const SnowflakeDoodle: React.FC<{ className?: string; style?: React.CSSPropertie
     </div>
 );
 
-const ImagePlaceholder: React.FC<{ text: string; className?: string }> = ({ text, className }) => (
-    <div className={`flex items-center justify-center bg-[#e2ced3]/50 border-2 border-dashed border-[#c9a9ad] rounded-2xl p-4 text-center text-[#66496a]/70 font-playfair italic ${className}`}>
-        <span>{text}</span>
+const ImagePlaceholder: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className }) => (
+    <div className={`flex items-center justify-center bg-[#e2ced3]/50 rounded-2xl shadow-lg border border-white/30 overflow-hidden ${className}`}>
+        <img src={src} alt={alt} className="w-full h-full object-cover" />
     </div>
 );
 
@@ -31,7 +32,7 @@ const TimelineItem: React.FC<{
 }> = ({ title, description, imageContent, imagePosition, icon }) => {
     const isImageLeft = imagePosition === 'left';
     return (
-        <div className="relative flex justify-center items-start w-full my-8">
+        <div className="relative flex justify-center items-center w-full my-8">
             <div className={`w-1/2 px-8 ${isImageLeft ? 'order-1' : 'order-3'}`}>{imageContent}</div>
             <div className="relative z-10 w-12 h-12 bg-gradient-to-br from-[#dec8ca] to-[#c9a9ad] rounded-full flex items-center justify-center text-2xl shadow-lg border-2 border-white/50 order-2">
                 {icon}
@@ -73,14 +74,14 @@ const BehindTheSyntaxPage: React.FC = () => {
         {
             title: "MySQL 5-Star Gold Rank on HackerRank",
             description: "Achieved within a week by applying my unique 'learn with work' approach—simultaneously mastering and executing SQL skills without disrupting productivity, making me an efficient, fast-learning asset for any team.",
-            imageContent: <ImagePlaceholder text="HackerRank 5-star badge image" className="aspect-video" />,
+            imageContent: <ImagePlaceholder src="images/hackerrank_badge.png" alt="HackerRank 5-star badge" className="aspect-video" />,
             imagePosition: 'left' as 'left',
             icon: '⭐'
         },
         {
             title: "AWS Technical Essentials Certificate",
             description: "Got hands-on with AWS basics, unlocking the power of cloud magic by mastering key services and savvy best practices for smarter, faster, and secure cloud adventures!",
-            imageContent: <ImagePlaceholder text="AWS Certificate logo" className="aspect-video" />,
+            imageContent: <ImagePlaceholder src="images/aws_certificate.png" alt="AWS Certificate logo" className="aspect-video" />,
             imagePosition: 'right' as 'right',
             icon: '☁️'
         },
@@ -89,17 +90,31 @@ const BehindTheSyntaxPage: React.FC = () => {
             description: "I’m a BlueCross volunteer who’s basically a full-time dog hugger—helping with vaccination and adoption drives, walking, feeding, and pampering indies. I’ve fostered two stray fluffballs and couldn’t resist adopting one myself. Life’s better with wagging tails and a little chaos! 🌞🐶✨",
             imageContent: (
                 <div className="grid grid-cols-2 gap-2">
-                    <ImagePlaceholder text="Photo 1 with dog" className="aspect-square"/>
-                    <ImagePlaceholder text="Photo 2 at drive" className="aspect-square"/>
+                    <ImagePlaceholder src="images/volunteer_photo_1.jpg" alt="Photo 1 with a dog" className="aspect-square"/>
+                    <ImagePlaceholder src="images/volunteer_photo_2.jpg" alt="Photo 2 at adoption drive" className="aspect-square"/>
                 </div>
             ),
             imagePosition: 'left' as 'left',
             icon: '🐾'
         },
         {
+            title: "Couture Sparks, Freely Fueled",
+            description: "Blending creativity with curiosity, I immerse myself in couture dress sketching as a self-taught fashion enthusiast. My ideas often rush in at the quirkiest moments—just before sleep or mid-shower—fueling spontaneous, artistic explorations that bring bold, original sketches to life.",
+            imageContent: <ImagePlaceholder src="images/fashion_sketch.jpg" alt="Image of a fashion sketch" className="aspect-video" />,
+            imagePosition: 'right' as 'right',
+            icon: '👗'
+        },
+        {
+            title: "National Service Scheme (NSS) Volunteer",
+            description: "Former NSS volunteer with a spirited commitment to civic engagement—led campus cleanliness drives, championed girl child education through awareness marches, and actively participated in Swachh Bharat initiatives. Also facilitated blood donation camps, tree plantations, and community outreach programs, fostering grassroots impact with empathy, discipline, and social responsibility.",
+            imageContent: <ImagePlaceholder src="images/nss_event.jpg" alt="Photo from an NSS event" className="aspect-video" />,
+            imagePosition: 'left' as 'left',
+            icon: '🤝'
+        },
+        {
             title: "Tech Ops, Festival Edition",
             description: "SDE by craft, curator by spirit — I led tech for the merchandise team and orchestrated logistics in hospitality for Daksh and Kuruksastra, bridging code and coordination to engineer systems, manage resources, and craft experiences with precision, empathy, and expressive flair.",
-            imageContent: <ImagePlaceholder text="Photo from Daksh or Kuruksastra" className="aspect-video" />,
+            imageContent: <ImagePlaceholder src="images/college_fest.jpg" alt="Photo from Daksh or Kuruksastra college fest" className="aspect-video" />,
             imagePosition: 'right' as 'right',
             icon: '🎉'
         }

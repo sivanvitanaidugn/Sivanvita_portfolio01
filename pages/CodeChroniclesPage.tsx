@@ -1,6 +1,7 @@
+
 import React from 'react';
-import Header from '../components/Header';
-import BackButton from '../components/BackButton';
+import Header from '../components/Header.tsx';
+import BackButton from '../components/BackButton.tsx';
 
 const FloatingCloud: React.FC<{ className?: string, style?: React.CSSProperties }> = ({ className, style }) => (
     <svg viewBox="0 0 100 60" className={className} style={style} fill="currentColor">

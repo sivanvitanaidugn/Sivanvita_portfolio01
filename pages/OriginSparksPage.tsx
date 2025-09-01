@@ -1,6 +1,7 @@
+
 import React from 'react';
-import Header from '../components/Header';
-import BackButton from '../components/BackButton';
+import Header from '../components/Header.tsx';
+import BackButton from '../components/BackButton.tsx';
 
 const StarIcon: React.FC<{ className?: string; color?: string }> = ({ className, color = '#d9b2cf' }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={color}>
